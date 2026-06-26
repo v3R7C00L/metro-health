@@ -1,0 +1,6 @@
+{
+  "name": "Metro Health",
+  "description": "A beautiful Metro UI and Windows Phone styled Health and Fitness tracker with real-time steps, calories, and activity tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
