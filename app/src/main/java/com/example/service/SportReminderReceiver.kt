@@ -12,6 +12,15 @@ import com.example.MainActivity
 
 class SportReminderReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        val sharedPrefs = context.getSharedPreferences("health_prefs", Context.MODE_PRIVATE)
+        val lastNotified = sharedPrefs.getLong("last_sport_reminder_time", 0L)
+        val now = System.currentTimeMillis()
+        if (now - lastNotified < 2000L) {
+            // Prevent duplicate notification delivery within 2 seconds
+            return
+        }
+        sharedPrefs.edit().putLong("last_sport_reminder_time", now).apply()
+
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channelId = "sporting_reminders_channel"
         
@@ -36,20 +45,10 @@ class SportReminderReceiver : BroadcastReceiver() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         
-        val quotes = listOf(
-            "Ready for a walk? Let's crush your step goal today!",
-            "Sitting too long? Get up and take 500 steps right now!",
-            "A quick walk makes a big difference. Move your body!",
-            "Consistency is key! Every step brings you closer to your fitness goals.",
-            "Energy flows where movement goes. Step up!",
-            "Be stronger than your excuses. Let's get sporting!"
-        )
-        val randomQuote = quotes.random()
-        
         val notification = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("Time to get sporting!")
-            .setContentText(randomQuote)
+            .setContentTitle("Sport Reminder")
+            .setContentText("yo you need to sport you know")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)

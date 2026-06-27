@@ -597,10 +597,24 @@ fun TodayPivot(
                 MetroFlippingTile(
                     frontContent = {
                         Column(modifier = Modifier.padding(16.dp)) {
-                            Text(
-                                text = "CALORIES",
-                                style = MaterialTheme.typography.labelLarge.copy(color = Color.Gray)
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "CALORIES",
+                                    style = MaterialTheme.typography.labelLarge.copy(color = Color.Gray)
+                                )
+                                Text(
+                                    text = "TAP",
+                                    style = MaterialTheme.typography.labelSmall.copy(
+                                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                        fontSize = 8.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                )
+                            }
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = String.format(Locale.US, "%.0f", calories),
@@ -620,22 +634,31 @@ fun TodayPivot(
                             modifier = Modifier
                                 .padding(16.dp)
                                 .fillMaxSize(),
-                            verticalArrangement = Arrangement.Center
+                            verticalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(
-                                text = "BURN GOALS",
-                                style = MaterialTheme.typography.labelMedium.copy(
-                                    color = MaterialTheme.colorScheme.primary,
-                                    fontWeight = FontWeight.Bold
+                            Column {
+                                Text(
+                                    text = "BURN GOALS",
+                                    style = MaterialTheme.typography.labelMedium.copy(
+                                        color = MaterialTheme.colorScheme.primary,
+                                        fontWeight = FontWeight.Bold
+                                    )
                                 )
-                            )
-                            Spacer(modifier = Modifier.height(6.dp))
+                                Spacer(modifier = Modifier.height(6.dp))
+                                Text(
+                                    text = "EVERY ACTIVE CALORIE BURNED INCREASES LONG-TERM HEALTH VIGOR.",
+                                    style = MaterialTheme.typography.labelLarge.copy(
+                                        color = Color.White,
+                                        fontSize = 10.sp,
+                                        lineHeight = 13.sp
+                                    )
+                                )
+                            }
                             Text(
-                                text = "EVERY ACTIVE CALORIE BURNED INCREASES LONG-TERM HEALTH VIGOR.",
-                                style = MaterialTheme.typography.labelLarge.copy(
-                                    color = Color.White,
-                                    fontSize = 10.sp,
-                                    lineHeight = 13.sp
+                                text = "TAP TO FLIP BACK",
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    color = Color.Gray,
+                                    fontSize = 8.sp
                                 )
                             )
                         }
@@ -651,10 +674,24 @@ fun TodayPivot(
                 MetroFlippingTile(
                     frontContent = {
                         Column(modifier = Modifier.padding(16.dp)) {
-                            Text(
-                                text = "DISTANCE",
-                                style = MaterialTheme.typography.labelLarge.copy(color = Color.Gray)
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "DISTANCE",
+                                    style = MaterialTheme.typography.labelLarge.copy(color = Color.Gray)
+                                )
+                                Text(
+                                    text = "TAP",
+                                    style = MaterialTheme.typography.labelSmall.copy(
+                                        color = Color.White.copy(alpha = 0.4f),
+                                        fontSize = 8.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                )
+                            }
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = String.format(Locale.US, "%.0f", meters),
@@ -674,22 +711,31 @@ fun TodayPivot(
                             modifier = Modifier
                                 .padding(16.dp)
                                 .fillMaxSize(),
-                            verticalArrangement = Arrangement.Center
+                            verticalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(
-                                text = "KEEP MOVING",
-                                style = MaterialTheme.typography.labelMedium.copy(
-                                    color = Color.White,
-                                    fontWeight = FontWeight.Bold
+                            Column {
+                                Text(
+                                    text = "KEEP MOVING",
+                                    style = MaterialTheme.typography.labelMedium.copy(
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Bold
+                                    )
                                 )
-                            )
-                            Spacer(modifier = Modifier.height(6.dp))
+                                Spacer(modifier = Modifier.height(6.dp))
+                                Text(
+                                    text = "WALKING AT A BRISK PACE STRENGTHENS THE CARDIO SYSTEM.",
+                                    style = MaterialTheme.typography.labelLarge.copy(
+                                        color = Color.Gray,
+                                        fontSize = 10.sp,
+                                        lineHeight = 13.sp
+                                    )
+                                )
+                            }
                             Text(
-                                text = "WALKING AT A BRISK PACE STRENGTHENS THE CARDIO SYSTEM.",
-                                style = MaterialTheme.typography.labelLarge.copy(
+                                text = "TAP TO FLIP BACK",
+                                style = MaterialTheme.typography.labelSmall.copy(
                                     color = Color.Gray,
-                                    fontSize = 10.sp,
-                                    lineHeight = 13.sp
+                                    fontSize = 8.sp
                                 )
                             )
                         }
@@ -810,7 +856,6 @@ fun TodayPivot(
                 }
             }
         }
-
         item {
             Box(
                 modifier = Modifier
@@ -883,6 +928,111 @@ fun TodayPivot(
                 }
             }
         }
+
+        // Beautiful flippable Cobalt Blue tile detailing how to build a real APK on mobile
+        item {
+            MetroFlippingTile(
+                backgroundColor = Color(0xFF0078D7), // Signature high-contrast Cobalt Blue Windows Phone tile
+                borderColor = Color(0xFF005A9E),
+                delayMs = 8500L,
+                frontContent = {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "MOBILE APK BUILDER",
+                                style = MaterialTheme.typography.labelLarge.copy(
+                                    color = Color.White,
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 1.sp
+                                )
+                            )
+                            Icon(
+                                imageVector = Icons.Default.Build,
+                                contentDescription = "Build APK Guide Icon",
+                                tint = Color.White,
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                        Column {
+                            Text(
+                                text = "TAP TO FLIP / REVEAL",
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    color = Color.White.copy(alpha = 0.8f),
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 9.sp
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "How to compile and install this application directly onto your mobile phone as a real native APK.",
+                                style = MaterialTheme.typography.bodySmall.copy(
+                                    color = Color.White,
+                                    fontSize = 11.sp,
+                                    lineHeight = 14.sp
+                                )
+                            )
+                        }
+                    }
+                },
+                backContent = {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "INSTALL REAL APK ON MOBILE:",
+                            style = MaterialTheme.typography.labelLarge.copy(
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 0.5.sp
+                            )
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            listOf(
+                                "1. Tap the Settings cog/Menu icon on the top right.",
+                                "2. Click 'Generate APK' / 'Download APK/AAB'.",
+                                "3. Wait for the cloud compiler build to complete.",
+                                "4. Download & open the .apk to install natively!"
+                            ).forEach { step ->
+                                Text(
+                                    text = step,
+                                    style = MaterialTheme.typography.bodySmall.copy(
+                                        color = Color.White,
+                                        fontSize = 10.sp,
+                                        lineHeight = 13.sp
+                                    )
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = "TAP AGAIN TO FLIP BACK",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                color = Color.White.copy(alpha = 0.6f),
+                                fontSize = 8.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(160.dp)
+                    .testTag("apk_builder_guide_tile")
+            )
+        }
     }
 
     // Manual step log dialog
@@ -904,7 +1054,7 @@ fun TodayPivot(
             text = {
                 Column {
                     Text(
-                        text = "Enter steps to simulate walked distance and calorie calculations.",
+                        text = "Enter steps to log real physical walked distance and calorie calculations.",
                         style = MaterialTheme.typography.bodyMedium.copy(color = Color.Gray)
                     )
                     Spacer(modifier = Modifier.height(16.dp))
@@ -1028,7 +1178,9 @@ fun MetroFlippingTile(
     frontContent: @Composable () -> Unit,
     backContent: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    delayMs: Long = 6000L
+    delayMs: Long = 6000L,
+    backgroundColor: Color = Color(0xFF111111),
+    borderColor: Color = Color(0xFF333333)
 ) {
     var isFlipped by remember { mutableStateOf(false) }
     
@@ -1051,8 +1203,9 @@ fun MetroFlippingTile(
                 rotationY = rotation
                 cameraDistance = 12f * density
             }
-            .background(Color(0xFF111111))
-            .border(1.dp, Color(0xFF333333), RectangleShape)
+            .background(backgroundColor)
+            .border(1.dp, borderColor, RectangleShape)
+            .clickable { isFlipped = !isFlipped }
     ) {
         if (rotation <= 90f) {
             Box(Modifier.fillMaxSize()) {
@@ -2110,8 +2263,8 @@ fun sendGoalNotification(context: Context, steps: Int, goal: Int) {
 
     val notification = NotificationCompat.Builder(context, channelId)
         .setSmallIcon(android.R.drawable.ic_dialog_info)
-        .setContentTitle("🏆 Step Goal Achieved!")
-        .setContentText("Amazing job! You hit your goal of ${String.format(Locale.US, "%,d", goal)} steps with ${String.format(Locale.US, "%,d", steps)} steps today!")
+        .setContentTitle("🏆 Goal Achieved")
+        .setContentText("well done on sporting except if you cheated")
         .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setAutoCancel(true)
         .setContentIntent(pendingIntent)
